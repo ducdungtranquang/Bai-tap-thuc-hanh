@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dao chhuoit</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html{
+            text-align: center;
+        }
+        .firework{
+            display: none;
+        }
+        .active{
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+
+    <ul>
+        <li>Hung</li>
+        <li>Huong</li>
+        <li>DDD</li>
+    </ul>
+    <table>
+        <tr>
+            <form action="" onsubmit=" false"> 
+                <label for="name">Nhap 1 chuoi</label>
+                <input type="text" name="name" class="input" >
+                <button class="btn">Thuc hien</button>
+            </form>
+        </tr>
+            <div>
+                <div class="titile">Chuoi dao:</div>
+                <span class="string"></span>
+            </div>
+        <tr>
+
+        </tr>
+    </table>
+
+    
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <div class="firework">
+        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_jEMHbp.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;" controls  loop autoplay></lottie-player>
+    </div>
+
+</body>
+
+<script>
+    let btn = document.querySelector(".btn");
+
+
+    const firework = document.querySelector(".firework")
+
+    btn.addEventListener('click',()=>{
+        event.preventDefault();
+        let inputStr = document.querySelector("input").value; 
+        let strReverse = document.querySelector('.string');
+
+        strReverse.innerHTML = inputStr.split('').reverse().join('');
+    })
+    btn.onclick = function(){
+        firework.currentTime=0;
+        firework.classList.toggle('active')
+    }
+    setInterval(e=>{
+
+        firework.classList.remove('active')
+        firework.currentTime=0;
+    },5000)
+
+</script>
+</html>
